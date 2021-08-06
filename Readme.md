@@ -5,8 +5,11 @@ If you need to refresh the task list simply delete the `.tasks` file
 
 ## Usage
 1. Download the `gradleAutoComplete.jar` and `gradleAutoComplete.bat` 
-2. Add the containing folder to the `PATH` Environment variable 
-3. Add the following snippet to your $PROFILE in the Powershell
+2. Add the containing folder to the `PATH` Environment variable
+3. Set ExecutionPolicy in Powershell to `RemoteSigned`:
+   1. Run Powershell as Administrator
+   2. Run `Set-ExecutionPolicy RemoteSigned`
+4. Add the following snippet to your $PROFILE in the Powershell (`notepad.exe $PROFILE`)
 
 ```powershell
 # The code that will perform the auto-completion
@@ -50,5 +53,5 @@ $scriptBlock = {
 Register-ArgumentCompleter -CommandName gradlew -ParameterName Param -ScriptBlock $scriptBlock
 ```
 
-4. Run `. $PROFILE` to reload your configuration
-5. Now you can navigate into your gradle folder and type `gradlew taskNa<tab>` to trigger the autocompletion (if you have a lot of tasks it could take some time at the first trigger)
+5. Run `. $PROFILE` to reload your configuration
+6. Now you can navigate into your gradle folder and type `gradlew taskNa<tab>` to trigger the autocompletion (if you have a lot of tasks it could take some time at the first trigger)
