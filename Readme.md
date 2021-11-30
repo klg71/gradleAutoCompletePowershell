@@ -12,6 +12,15 @@ If you need to refresh the task list simply delete the `.tasks` file
 4. Add the following snippet to your $PROFILE in the Powershell (`notepad.exe $PROFILE`)
 
 ```powershell
+# Needed because we can only register argumentCompleters for functions
+function gradlew {
+    Param(
+        [string] $Param
+    )
+
+    .\gradlew $param
+}
+
 # The code that will perform the auto-completion
 $scriptBlock = {
     # The parameters passed into the script block by the
